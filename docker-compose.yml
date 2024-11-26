@@ -1,0 +1,28 @@
+services:
+  nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: aleksunir/act02_nodejs
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+    networks:
+      - private_network
+
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    # Mount volume to persist 
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - private_network
+
+volumes:
+  mongo-data:
+
+networks:
+  private_network:
