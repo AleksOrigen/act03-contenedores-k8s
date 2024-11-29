@@ -1,0 +1,24 @@
+# Archivos de estado de Terraform
+*.tfstate
+*.tfstate.*
+crash.log
+
+# Archivos de plan de Terraform
+*.tfplan
+
+# Directorios de trabajo de Terraform
+.terraform/
+
+# Archivos de credenciales (si se usan localmente)
+*.aws
+
+# Archivos generados por Terraform (por ejemplo, en sistemas CI/CD)
+.terraform.lock.hcl
+
+# Directorios de configuración de editor (si se usan)
+.idea/
+.vscode/
+*.swp
+
+# Ignorar archivos de respaldo de editores
+*~
