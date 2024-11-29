@@ -53,5 +53,6 @@ jobs:
         tag: "${{ env.new_tag }}"
         tag_exists_error: false
         message: "Release ${{ env.new_tag }}"
+        github_token: ${{ secrets.ACTIONS_TOKEN || secrets.GITHUB_TOKEN }}
 
 
