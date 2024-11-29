@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'nodeapp/**'
 
 jobs:
   build-and-push:
@@ -37,10 +39,11 @@ jobs:
     - name: Build and Push Docker Image
       uses: docker/build-push-action@v4
       with:
+        context: ./nodeapp
         push: true
         tags: |
-          ${{ secrets.DOCKER_USERNAME }}/k8s-node-app:${{ env.new_tag }}
-          ${{ secrets.DOCKER_USERNAME }}/k8s-node-app:latest
+          ${{ secrets.DOCKER_USERNAME }}/aleksunir:${{ env.new_tag }}
+          ${{ secrets.DOCKER_USERNAME }}/aleksunir:latest
 
     - name: Create GitHub Tag
       run: |
