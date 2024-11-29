@@ -3,7 +3,9 @@ const { MongoClient } = require('mongodb');
 let db;
 
 async function connectDB() {
-  const client = new MongoClient('mongodb://mongodb:27017/db', {
+  const mongoUrl = process.env.MONGO_URL || 'mongodb://mongodb:27017/db';
+
+  const client = new MongoClient(mongoUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   });
