@@ -2,13 +2,16 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nodeapp-deployment
+  namespace: act03-contenedores
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: nodeapp
+
   template:
     metadata:
+      name: nodeapp-pod
       labels:
         app: nodeapp
     spec:

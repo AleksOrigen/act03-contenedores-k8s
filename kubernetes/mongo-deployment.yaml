@@ -1,7 +1,8 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: mongo-rs
+  name: mongo-deployment
+  namespace: act03-contenedores
 spec:
   replicas: 1
   selector:
@@ -10,7 +11,7 @@ spec:
 
   template:
     metadata:
-      name: mongo
+      name: mongo-pod
       labels:
         app: mongo
     spec:
@@ -25,5 +26,7 @@ spec:
           name: mongo-data
           
       volumes:
-        - name: mongo-data
-          emptyDir: {}
+      - name: mongo-data
+        hostPath:
+          path: /mnt/data/mongo
+          type: DirectoryOrCreate
