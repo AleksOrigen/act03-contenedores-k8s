@@ -3,9 +3,10 @@ const { MongoClient } = require('mongodb');
 let db;
 
 async function connectDB() {
-  const mongoUrl = process.env.MONGO_URL || 'mongodb://mongodb:27017/db';
+  const mongoUrl = process.env.MONGO_URL;
+  console.log(`Conectandose a '${mongoUrl}' ...`)
 
-  const client = new MongoClient(mongoUrl, {
+  const client = new MongoClient(mongoUrl || "mongodb://mongo-svc:27017/db", {
     useNewUrlParser: true,
     useUnifiedTopology: true
   });
