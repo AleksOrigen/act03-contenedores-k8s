@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: nodeapp
-          image: aleksunir/k8s-node-app:v1.1
+          image: aleksunir/k8s-node-app:latest
           ports:
             - containerPort: 3000
           env:
