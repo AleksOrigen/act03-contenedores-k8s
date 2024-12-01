@@ -2,19 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nodeapp-deployment
+  namespace: act03-contenedores
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: nodeapp
+
   template:
     metadata:
+      name: nodeapp-pod
       labels:
         app: nodeapp
     spec:
       containers:
         - name: nodeapp
-          image: aleksunir/k8s-node-app:latest
+          image: aleksunir/k8s-node-app:v1.1
           ports:
             - containerPort: 3000
           env:

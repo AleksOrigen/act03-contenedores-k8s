@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mongo-svc
+  namespace: act03-contenedores
 spec:
   selector:
     app: mongo
